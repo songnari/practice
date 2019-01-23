@@ -56,7 +56,13 @@ void read_stack(istream& ins) {
 	while (1) {
 		if (ins.peek() == '0') {
 			// 0 입력시 프로그램 종료
-			return;
+			ins.ignore();
+			if (ins.peek() == '\n') {
+				return;
+			}
+			else {
+				numbers.push(0);
+			}
 		}
 
 		while (ins && ins.peek() != '\n') {
